@@ -7,15 +7,16 @@ Route::get('/', function () {
 });
 
 Route::get('/play', function () {
-    for ($i = 1; $i <= 15; $i++) {
-        if ($i % 15 === 0) {
-            echo 'FizzBuzz<br>';
-        } else if ($i % 5 === 0) {
-            echo 'Buzz<br>';
-        } else if ($i % 3 === 0) {
-            echo 'Fizz<br>';
-        } else {
-            echo $i . '<br>';
+    function reverseArray(array $items): array
+    {
+        $basket = [];
+
+        for ($i = count($items); $i > 0; $i--) {
+            $basket[] = $items[$i - 1];
         }
+
+        return $basket;
     }
+
+    print_r(reverseArray([1, 2, 3, 4]));
 });
